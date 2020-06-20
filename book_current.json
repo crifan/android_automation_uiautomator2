@@ -1,0 +1,19 @@
+{
+  "title": "安卓自动化测试利器：uiautomator2",
+  "description": "总结安卓设备自动化测试领域好用的库uiautomator2，介绍如何搭建环境，如何连接安卓真机测试，如何用weditor去辅助调试，以及放出自己总结的各种常用函数和具体用法。",
+  "pluginsConfig": {
+    "github-buttons": {
+      "buttons": [
+        {
+          "repo": "android_automation_uiautomator2"
+        }
+      ]
+    },
+    "sitemap-general": {
+      "prefix": "https://book.crifan.com/gitbook/android_automation_uiautomator2/website/"
+    },
+    "toolbar-button": {
+      "url": "http://book.crifan.com/books/android_automation_uiautomator2/pdf/android_automation_uiautomator2.pdf"
+    }
+  }
+}

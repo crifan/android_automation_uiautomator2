@@ -1,0 +1,131 @@
+{
+  "title": "安卓自动化测试利器：uiautomator2",
+  "description": "总结安卓设备自动化测试领域好用的库uiautomator2，介绍如何搭建环境，如何连接安卓真机测试，如何用weditor去辅助调试，以及放出自己总结的各种常用函数和具体用法。",
+  "pluginsConfig": {
+    "github-buttons": {
+      "buttons": [
+        {
+          "repo": "android_automation_uiautomator2",
+          "user": "crifan",
+          "type": "star",
+          "count": true,
+          "size": "small"
+        },
+        {
+          "user": "crifan",
+          "type": "follow",
+          "width": "120",
+          "count": false,
+          "size": "small"
+        }
+      ]
+    },
+    "sitemap-general": {
+      "prefix": "https://book.crifan.com/gitbook/android_automation_uiautomator2/website/"
+    },
+    "toolbar-button": {
+      "url": "http://book.crifan.com/books/android_automation_uiautomator2/pdf/android_automation_uiautomator2.pdf",
+      "icon": "fa-file-pdf-o",
+      "label": "下载PDF"
+    },
+    "callouts": {
+      "showTypeInHeader": false
+    },
+    "theme-default": {
+      "showLevel": true
+    },
+    "disqus": {
+      "shortName": "crifan"
+    },
+    "prism": {
+      "css": [
+        "prism-themes/themes/prism-atom-dark.css"
+      ]
+    },
+    "sharing": {
+      "douban": false,
+      "facebook": true,
+      "google": false,
+      "hatenaBookmark": false,
+      "instapaper": false,
+      "line": false,
+      "linkedin": false,
+      "messenger": false,
+      "pocket": false,
+      "qq": true,
+      "qzone": false,
+      "stumbleupon": false,
+      "twitter": true,
+      "viber": false,
+      "vk": false,
+      "weibo": true,
+      "whatsapp": false,
+      "all": [
+        "douban",
+        "facebook",
+        "google",
+        "instapaper",
+        "line",
+        "linkedin",
+        "messenger",
+        "pocket",
+        "qq",
+        "qzone",
+        "stumbleupon",
+        "twitter",
+        "viber",
+        "vk",
+        "weibo",
+        "whatsapp"
+      ]
+    },
+    "tbfed-pagefooter": {
+      "copyright": "crifan.com，使用<a href='https://creativecommons.org/licenses/by/4.0/deed.zh'>署名4.0国际(CC BY 4.0)协议</a>发布",
+      "modify_label": "最后更新：",
+      "modify_format": "YYYY-MM-DD HH:mm:ss"
+    },
+    "ga": {
+      "token": "UA-28297199-1"
+    },
+    "donate": {
+      "wechat": "https://www.crifan.com/files/res/crifan_com/crifan_wechat_pay.jpg",
+      "alipay": "https://www.crifan.com/files/res/crifan_com/crifan_alipay_pay.jpg",
+      "title": "",
+      "button": "打赏",
+      "alipayText": "支付宝打赏给Crifan",
+      "wechatText": "微信打赏给Crifan"
+    }
+  },
+  "author": "Crifan Li <admin@crifan.com>",
+  "language": "zh-hans",
+  "gitbook": "3.2.3",
+  "root": "./src",
+  "links": {
+    "sidebar": {
+      "主页": "http://www.crifan.com"
+    }
+  },
+  "plugins": [
+    "theme-comscore",
+    "anchors",
+    "-lunr",
+    "-search",
+    "search-plus",
+    "disqus",
+    "-highlight",
+    "prism",
+    "prism-themes",
+    "github-buttons",
+    "splitter",
+    "-sharing",
+    "sharing-plus",
+    "tbfed-pagefooter",
+    "expandable-chapters-small",
+    "ga",
+    "donate",
+    "sitemap-general",
+    "copy-code-button",
+    "callouts",
+    "toolbar-button"
+  ]
+}
