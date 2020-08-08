@@ -1,6 +1,6 @@
 {
   "latestVersion": "v1.0",
-  "lastUpdate": "20200623",
+  "lastUpdate": "20200808",
   "gitRepoName": "android_automation_uiautomator2",
   "bookName": "安卓自动化测试利器：uiautomator2",
   "bookDescription": "总结安卓设备自动化测试领域好用的库uiautomator2，包括简介；如何搭建环境；有哪些核心功能，比如监听、用xpath等查找元素、以及常见的操作元素，比如点击元素、输入内容等、如何获取当前屏幕的截图和xml源码；以及与u2相关的内容，比如辅助调试的weditor、adb、android-uiautomator-server、uiautomator；以及常见的一些问题，比如NAF等；以及一些源码分析；和通用代码段，包括工具类函数、adb相关、设备相关等；最后给出参考资料和文档。"

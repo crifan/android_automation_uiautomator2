@@ -12,7 +12,7 @@ def get_phone_name_Android(self):
     cmd = 'adb -s {} shell getprop ro.product.name'.format(self.device)
     text = CommonUtils.get_cmd_lines(cmd,text=True)
     # https://miuiver.com/xiaomi-device-codename/
-    #     begonia -> 红米Note 8内部代号为“begonia”
+    #     begonia -> 红米Note 8内部代号为 "begonia"
     return re.sub("\s","",text)
     # isRunCmdOk, outputText = self.getCommandOutput(cmd)
     # if isRunCmdOk:

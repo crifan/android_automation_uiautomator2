@@ -26,7 +26,7 @@
 # 注册单个监听器
 d.watcher("安装").when(text="安装").click()
 # 等价于
-d.watcher("安装").when(text="安装").click(text="安装”)
+d.watcher("安装").when(text="安装").click(text="安装")
 
 # （此刻）单次运行（一次）
 d.watchers.run()
