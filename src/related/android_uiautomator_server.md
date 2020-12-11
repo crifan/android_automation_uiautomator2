@@ -22,7 +22,7 @@ $ ./gradlew packageDebugAndroidTest
 
 详见：`.travis.yml`中的：
 
-```yml
+```xml
 script:
     - "./gradlew build"
     - "./gradlew packageDebugAndroidTest"
