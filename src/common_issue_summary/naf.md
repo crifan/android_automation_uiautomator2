@@ -27,7 +27,7 @@
 ...
 ```
 
-![bc_compare_xml_diff](../assets/img/bc_compare_xml_diff.png)
+![bc_compare_xml_diff](../assets/img/bc_compare_xml_diff.jpg)
 
 另外：
 
@@ -141,3 +141,4 @@
 而关于NAF如何规避解决，详见：
 
 【未解决】如何确保uiautomator2的dump_hierarchy能导出页面中NAF的元素节点
+

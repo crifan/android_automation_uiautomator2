@@ -13,7 +13,30 @@ def getDeviceInfo(self):
 
 ```python
 deviceInfo = self.getDeviceInfo()
+logging.info("deviceInfo=%s" % deviceInfo)
 ```
+
+输出举例：
+
+```python
+# deviceInfo={'udid': '2e2a0cb1-36:59:fa:77:bb:a6-V2065A', 'version': '10', 'serial': '2e2a0cb1', 'brand': 'vivo', 'model': 'V2065A', 'hwaddr': '36:59:fa:77:bb:a6', 'port': 7912, 'sdk': 29, 'agentVersion': '0.9.5', 'display': {'width': 720, 'height': 1600}, 'battery': {'acPowered': True, 'usbPowered': False, 'wirelessPowered': False, 'status': 5, 'health': 2, 'present': True, 'level': 100, 'scale': 100, 'voltage': 4406, 'temperature': 286, 'technology': 'Li-poly'}, 'memory': {'total': 5832196, 'around': '6 GB'}, 'cpu': {'cores': 8, 'hardware': 'Qualcomm Technologies, Inc BENGAL'}, 'arch': '', 'owner': None, 'presenceChangedAt': '0001-01-01T00:00:00Z', 'usingBeganAt': '0001-01-01T00:00:00Z', 'product': None, 'provider': None}
+```
+
+## 获取(u2)驱动信息
+
+代码：
+
+```python
+driverInfo = self.driver.info
+logging.info("driverInfo=%s" % driverInfo)
+```
+
+输出举例：
+
+```python
+# driverInfo={'currentPackageName': 'com.bbk.launcher2', 'displayHeight': 1459, 'displayRotation': 0, 'displaySizeDpX': 360, 'displaySizeDpY': 800, 'displayWidth': 720, 'productName': 'PD2065', 'screenOn': True, 'sdkInt': 29, 'naturalOrientation': True}
+```
+
 ## 获取安卓版本
 
 ```python
@@ -87,7 +110,7 @@ screenWidth, screenHeight = self.getCurScreenResolution()
 
 另外，当屏幕故意不去旋转，回到默认竖屏后：
 
-![android_phone_vertical_mode](../assets/img/android_phone_vertical_mode.png)
+![android_phone_vertical_mode](../assets/img/android_phone_vertical_mode.jpg)
 
 此时
 * 旋转为`False`
@@ -114,4 +137,3 @@ screenWidth, screenHeight = self.getCurScreenResolution()
 详见：
 
 【已解决】uiautomator2获取当前屏幕的宽和高即屏幕大小分辨率信息
-

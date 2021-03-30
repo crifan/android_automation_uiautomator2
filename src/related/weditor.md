@@ -112,10 +112,11 @@ print(d(className="android.view.View").count)
 
 然后才找到此处对应节点：
 
-![weditor_search_and_found_xml](../assets/img/weditor_search_and_found_xml.png)
+![weditor_search_and_found_xml](../assets/img/weditor_search_and_found_xml.jpg)
 
 详见：
 
 【已解决】用weditor实时查看安卓当前页面中的xml源码
 
 【已解决】Mac中安装uiautomator2的UI界面工具：weditor
+

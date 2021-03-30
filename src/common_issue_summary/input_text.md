@@ -1,16 +1,16 @@
-# 常见问题
+# 输入文字
 
-此处整理出uiautomator2开发期间，遇到的一些常见问题及其解决办法。
+## 输入文字的两种方式
 
-## 输入文字
-
-目前发现之前最早的代码：
+对于输入文字，发现之前的可以工作的代码：
 
 ```python
 self.driver(text=locator["text"]).set_text(text,timeout=WaitFind)
 ```
 
-结果会无法完整输入内容：处于，中文输入法中，输入了字母，但是丢失了数字 的效果：
+会出现：无法完整输入内容
+
+具体现象：中文输入法中，输入了字母，但是丢失了数字 的效果：
 
 ![android_input_text_abnormal](../assets/img/android_input_text_abnormal.png)
 
@@ -39,7 +39,7 @@ self.driver(text=locator["text"]).set_text(text,timeout=WaitFind)
 
 而换用另外的：
 
-（1）`xpath`的`set_text`
+### `xpath`的`set_text`
 
 ```python
 searchElementSelector = self.driver.xpath(searchKeyText)
@@ -58,9 +58,7 @@ searchElementSelector.set_text(text)
         self._parent.send_text(text)
 ```
 
-或
-
-（2）`send_keys`
+### `send_keys`
 
 ```python
 self.driver.send_keys(text)
@@ -78,8 +76,6 @@ self.driver.set_fastinput_ime(False) # 关掉FastInputIME输入法，切换回�
 经测试，感觉没区别。
 
 结果都是：
-
-
 
 * 可以成功输入文字
     * 此处的：gh_cfcfcee032cc
@@ -102,34 +98,55 @@ self.driver.set_fastinput_ime(False) # 关掉FastInputIME输入法，切换回�
     * 问题不大，但是很不爽
         * 但是没办法改变和保留原有输入法
 
-详见：
+## set_text导致输入法切换，需要恢复
 
-【部分解决】python的uiautomator2中set_text导致输入法变化无法顺利输入文字
-
-## 权限问题导致long_click不工作
-
-之前小米9中用long_click
+最终整理出函数：
 
 ```python
-self.driver(text=locator["text"]).click(timeout=WaitFind)
+def selectorSetText(u2Dev, curXpathSelector, inputText):
+    selectorSetTextResp = curXpathSelector.set_text(inputText)
+    logging.info("selectorSetTextResp=%s", selectorSetTextResp) # selectorSetTextResp=None
+    # 在set_text后，输入法会变成FastInputIME输入法
+    # 用下面代码可以实现：关掉FastInputIME输入法，切换回系统默认输入法
+    u2Dev.set_fastinput_ime(False)
 ```
 
-报错：
+## 用set_text输入字符串：小米安全键盘 影响输入，可以考虑禁止掉
 
-```bash
-uiautomator2.exceptions.JsonRpcError: 0 Unknown error: <Injecting to another application requires INJECT_EVENTS permission> data: {'exceptionTypeName': 'java.lang.SecurityException', 'message': 'Injecting to another application requires INJECT_EVENTS permission'}, method: click
+代码本身：
+
+```python
+passwordStr = "请输入密码"
+passwordXpath = """//android.widget.EditText[@text="%s" and @index="2" and @clickable="true"]""" % passwordStr
+passwordSelector = u2Dev.xpath(passwordXpath)
+if passwordSelector.exists:
+    logging.info("Found %s", passwordStr)
+    # pwdClickResp = passwordSelector.click()
+    # logging.debug("pwdClickResp=%s", pwdClickResp)
+    # doScreenshot(u2Dev)
+    selectorSetText(u2Dev, passwordSelector, Vivo_Password)
+
+def selectorSetText(u2Dev, curXpathSelector, inputText):
+    selectorSetTextResp = curXpathSelector.set_text(inputText)
+    logging.info("selectorSetTextResp=%s", selectorSetTextResp) # selectorSetTextResp=None
+    doScreenshot(u2Dev)
+    # 在set_text后，输入法会变成FastInputIME输入法
+    # 用下面代码可以实现：关掉FastInputIME输入法，切换回系统默认输入法
+    u2Dev.set_fastinput_ime(False)
 ```
 
-即：`INJECT_EVENTS`问题=权限问题
+是可以输入密码=字符串的
 
-解决办法：去开启权限 `USB调试（安全设置）` -> `允许通过USB调试修改权限或模拟点击`
+但是
+* 之前开启了：小米安全键盘
+  * 导致：输入不顺利
+    * 小米安全键盘 会弹出显示 消失掉，多次之后
+    * （等待1，2秒后）触发异常：
+      * `/Users/limao/dev/xxx/crawler/appAutoCrawler/AppCrawler/venv/lib/python3.8/site-packages/uiautomator2/__init__.py:1646: Warning: set FastInputIME failed. use "d(focused=True).set_text instead"`
+      * `warnings.warn(`
+    * 最终才能输入密码
+* 解决办法：关闭 小米安全键盘
+  * 步骤：
+    * 系统设置-》更多设置-》语言与输入法-》安全键盘-》取消勾选：开启安全键盘
+      * ![xiaomi_disable_security_keyboard](../assets/img/xiaomi_disable_security_keyboard.png)
 
-![settings_allow_usb_debug_emulate_click](../assets/img/settings_allow_usb_debug_emulate_click.png)
-
-注：期间会3次提醒你
-
-* 因为这个权限很重要
-    * 如果随便给了其他坏的应用
-        * 可能会滥用，而导致你手机被恶意操控
-            * 所以多次提醒你确认
-                * 自己此处是调试手机，自动抓包，所以没问题，是打算开启此权限
