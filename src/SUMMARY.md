@@ -6,6 +6,7 @@
 * [核心功能](core_function/README.md)
   * [监听](core_function/watcher.md)
   * [查找元素](core_function/find_element/README.md)
+    * [举例：浏览器的输入框](core_function/find_element/example_input_box.md)
     * [xpath](core_function/find_element/xpath.md)
   * [操作元素](core_function/operate_element/README.md)
     * [点击元素](core_function/operate_element/click_element.md)

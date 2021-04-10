@@ -12,34 +12,47 @@ xpath本身是一套独立的技术，常用于web领域内。
 tbsNodeList = self.driver.xpath("//com.tencent.tbs.core.webkit.WebView").all()
 ```
 
+> #### warning:: `xpath的all()`返回的是`XMLElement`而不是`XPathSelector`
+> 
+> `self.driver.xpath("//com.tencent.tbs.core.webkit.WebView")`返回的是`uiautomator2.xpath.XPathSelector`
+> 
+> 而加上了`all()`后
+> 
+> `self.driver.xpath("//com.tencent.tbs.core.webkit.WebView").all()`
+> 
+> 则返回的是：`uiautomator2.xpath.XMLElement`的`list`了
+> 
+> 即，每一个都是`uiautomator2.xpath.XMLElement`，而不是`uiautomator2.xpath.XPathSelector`
+
+其中每一个都是`uiautomator2.xpath.XMLElement`
+
+然后就可以去操作属性了：
+
 ### 获取属性content-desc的值
 
 ```python
-eachTbsNode.attrib.get("content-desc", "")
+eachXmlElem.attrib.get("content-desc", "")
 ```
 
 ### 给属性content-desc设置值
 
 ```python
-eachTbsNode.attrib["content-desc"] = "add something to avoid NAF"
+eachXmlElem.attrib["content-desc"] = "add something to avoid NAF"
 ```
 
 ### 删除一个属性
 
 ```python
-eachTbsNode.attrib.pop("NAF")
+eachXmlElem.attrib.pop("NAF")
 ```
 
 ## 文档
 
-关于Xpath的详细用法，见官网中的xpath的文档：
+关于Xpath的详细用法，见官网中的：
 
-[uiautomator2/uiautomator2/ext/xpath at master · openatx/uiautomator2](https://github.com/openatx/uiautomator2/tree/master/uiautomator2/ext/xpath)
-
--》文档已经移至：
-
-[uiautomator2/XPATH.md at master · openatx/uiautomator2](https://github.com/openatx/uiautomator2/blob/master/XPATH.md)
-
+* xpath的文档
+  * 新：[uiautomator2/XPATH.md at master · openatx/uiautomator2](https://github.com/openatx/uiautomator2/blob/master/XPATH.md)
+    * 旧：[uiautomator2/uiautomator2/ext/xpath at master · openatx/uiautomator2](https://github.com/openatx/uiautomator2/tree/master/uiautomator2/ext/xpath)
 
 其内部用的lxml，具体功能和语法都可以参考：
 
