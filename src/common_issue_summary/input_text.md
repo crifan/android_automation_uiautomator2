@@ -150,3 +150,33 @@ def selectorSetText(u2Dev, curXpathSelector, inputText):
     * 系统设置-》更多设置-》语言与输入法-》安全键盘-》取消勾选：开启安全键盘
       * ![xiaomi_disable_security_keyboard](../assets/img/xiaomi_disable_security_keyboard.png)
 
+## 以为输入框set_text输入文字无效
+
+某次调试代码，以为是：uiautomator的UiObject或XPathSelector的set_text不生效问题
+
+其实不是这个原因，而是点击了页面元素本身后，应该进去新的界面（输入法弹框界面，用于输入内容）
+
+所以应该把代码：
+
+```python
+inputUiObj = d(resourceId="com.android.browser:id/b4h", className="android.widget.TextView")
+inputUiObj.set_text(BaiduHomeUrl)
+```
+
+换成：
+
+```python
+inputUiObj = d(resourceId="com.android.browser:id/b4h", className="android.widget.TextView")
+inputUiObj.click()
+```
+
+或：
+
+```python
+inputXpathSelector = d.xpath("//android.widget.TextView[@resource-id='com.android.browser:id/b4h']”)
+inputXpathSelector.click()
+```
+
+去触发新界面，即可。
+
+-》后续再去定位搜索框，输入内容（百度首页地址），进入百度首页

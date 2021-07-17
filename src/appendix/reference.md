@@ -29,6 +29,22 @@
 * 【已解决】安卓手机小米的红米10X中关闭小米安全键盘输入
 * 【已解决】红米10X中把ATX和com.github.uiautomator.test设置为后台运行不被杀掉
 * 【已解决】设置Vivo安卓手机中运行ATX等应用后台持续运行而不会被进程管理杀掉
+* 【已解决】Mac中用uiautomator2自动操作安卓手机浏览器实现百度搜索
+* 【已解决】Mac中安装和初始化weditor
+* 【已解决】Mac中初始化安卓手机红米Note10X的uiautomator2开发环境
+* 【已解决】安卓手机中查看app应用信息中的包名信息
+* 【已解决】搞清楚安卓手机中多款浏览器应用的包名
+* 【已解决】用uiautomator2获取当前运行的app的包名等信息
+* 【已解决】借助weditor查看安卓当前app包名等信息
+* 【已解决】用uiautomator2查找不到元素如何等待app启动完毕
+* 【规避解决】用uiautomator2操作安卓浏览器新建窗口并打开百度主页
+* 【规避解决】uiautomator2对于安卓浏览器的输入框set_text输入文字无效
+* 【已解决】用uiautomator2操作安卓浏览器打开百度首页
+* 【已解决】用uiautomator2给安卓浏览器中百度首页中输入文字并触发搜索
+* 【已解决】uiautomator2中dump_hierarchy获取到的xml源码不是最新的
+* 【已解决】uiautomator2中用xpath如何查找某元素下面的某层级的子元素
+* 【基本解决】uiautomator2中查找和定位安卓浏览器中百度搜索结果中描述文字和来源网站
+* 【已解决】uiautomator2模拟安卓浏览器的百度搜索后去获取和解析搜索结果
 * 
 * [uiautomator | Android Developers](http://www.androiddocs.com/tools/help/uiautomator/index.html)
 * [Android 手机自动化测试工具有哪几种？ - 知乎](https://www.zhihu.com/question/19716849)

@@ -4,6 +4,31 @@ xpath本身是一套独立的技术，常用于web领域内。
 
 此处uiautomator2也支持xpath，用于元素定位，可以实现复杂条件的元素的查找。
 
+## xpath实际用法举例
+
+想要找到百度搜索结果的results下面的button，则对应语法是：
+
+```python
+titleButtonSelectorList = d.xpath("//*[@resource-id='results']//android.widget.Button[@clickable='true']").all()
+```
+
+即可找到对应元素的列表
+
+![xpath_found_results_btn_list](../../assets/img/xpath_found_results_btn_list.png)
+
+注意：
+
+分开写
+
+```python
+resultsSelector = d.xpath("//*[@resource-id='results']")
+titleButtonSelectorList = resultsSelector.xpath("//android.widget.Button[@clickable='true']").all()
+```
+
+却就是找不到元素。
+
+具体原因，暂时未知。
+
 ## xpath常见操作
 
 ### 定位节点和操作节点

@@ -64,6 +64,12 @@ Type "help", "copyright", "credits" or "license" for more information.
 conn=<urllib3.connection.HTTPConnection object at 0x1077f4da0>,method=GET,url=/version,timeout_obj=Timeout(connect=2, read=2, total=None),body=None,headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'},chunked=False
 ```
 
+和：红米Note10X打开了微信的输出：
+
+```bash
+{'currentPackageName': 'com.tencent.mm', 'displayHeight': 2201, 'displayRotation': 0, 'displaySizeDpX': 393, 'displaySizeDpY': 873, 'displayWidth': 1080, 'productName': 'atom', 'screenOn': True, 'sdkInt': 29, 'naturalOrientation': True}
+```
+
 ## 说明：安装细节
 
 #### 安装内容

@@ -34,3 +34,45 @@ accountXpath = """//android.widget.EditText[@resource-id="com.qihoo.gamecenter.p
 accountSelector = self.driver.xpath(accountXpath)
 self.selectorSetText(accountSelector, Qihoo360_Account)
 ```
+
+## 举例：点击和进入百度搜索页面并输入内容，再触发搜索
+
+用代码：
+
+```python
+################################################################################
+# Open baidu homepage
+################################################################################
+
+# trigger into input page
+
+# Method 1
+inputUiObj = d(resourceId="com.android.browser:id/b4h", className="android.widget.TextView")
+inputUiObj.click()
+
+# # Method 2
+# inputXpathSelector = d.xpath("//android.widget.TextView[@resource-id='com.android.browser:id/b4h']")
+# inputXpathSelector.click()
+
+# input baidu homr url
+BaiduHomeUrl = "https://www.baidu.com/"
+searchUiObj = d(resourceId="com.android.browser:id/bq3", className="android.widget.EditText")
+searchUiObj.set_text(BaiduHomeUrl)
+
+# trigger jump to baidu home
+d.press("enter")
+```
+
+实现了：
+
+在浏览器首页中，点击顶部搜索框，进入搜索地址栏输入框页面
+
+输入了百度首页地址后
+
+输入回车键，触发跳转
+
+进入了百度首页
+
+效果：
+
+![trigger_into_baidu_home](../../assets/img/trigger_into_baidu_home.png)

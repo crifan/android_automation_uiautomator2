@@ -118,7 +118,7 @@ if self.isAndroid:
 
 ## 获取app信息
 
-## 获取当前正在运行的app的包名和activity
+### 获取当前正在运行的app的包名和activity
 
 ```python
 def get_PackageActivity_Android(self):
@@ -142,3 +142,67 @@ def get_PackageActivity_Android(self):
 package, activity = get_PackageActivity_Android()
 ```
 
+### 举例：获取几个浏览器app的信息
+
+可以用`uiautomator2`的`app_current()`
+
+比如，代码：
+
+```python
+curApp = d.app_current()
+print("curApp=%s" % curApp)
+```
+
+输出：
+
+* 小米 内置浏览器
+  * 图
+    * ![u2_xiaomi_builtin_browser_info](../../assets/img/u2_xiaomi_builtin_browser_info.png)
+  * 信息
+    * `{'package': 'com.android.browser', 'activity': '.BrowserActivity', 'pid': 20194}`
+* Edge
+  * 图
+    * ![u2_edge_browser_info](../../assets/img/u2_edge_browser_info.png)
+  * 信息
+    * `curApp={'package': 'com.microsoft.emmx', 'activity': 'org.chromium.chrome.browser.ChromeTabbedActivity', 'pid': 21340}`
+* Firefox
+  * 图
+    * ![u2_firfox_browser_info](../../assets/img/u2_firfox_browser_info.png)
+  * 信息
+    * `curApp={'package': 'org.mozilla.firefox', 'activity': 'org.mozilla.fenix.HomeActivity', 'pid': 21817}`
+* UC浏览器
+  * 图
+    * ![u2_uc_browser_info](../../assets/img/u2_uc_browser_info.png)
+  * 信息
+    * `curApp={'package': 'com.UCMobile', 'activity': 'com.uc.browser.InnerUCMobile', 'pid': 22173}`
+* QQ浏览器
+  * 图
+    * ![u2_qq_browser_info](../../assets/img/u2_qq_browser_info.png)
+  * 信息
+    * `curApp={'package': 'com.tencent.mtt', 'activity': '.MainActivity', 'pid': 24304}`
+
+## 相关辅助信息
+
+### 获取当前安卓手机中已安装的app的包名等信息
+
+可以通过几种方式：
+
+* 手动点击和查看应用信息
+* 用uiautomator2获取当前运行的app的信息
+* 用weditor查看当前界面中app某元素的属性中的package值
+* 用adb查看
+  ```bash
+  adb shell pm list packages
+  ```
+
+获得app的包名信息。
+
+比如：
+
+各种浏览器app的包名：
+
+* 小米的 内置浏览器：`com.android.browser`
+* Edge：`com.microsoft.emmx`
+* Firefox：`org.mozilla.firefox`
+* UC浏览器：`com.UCMobile`
+* QQ浏览器：`com.tencent.mtt`
