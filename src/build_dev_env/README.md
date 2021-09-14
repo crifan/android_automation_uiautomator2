@@ -19,13 +19,11 @@ pip3 install -U uiautomator2
 ```
 
 * 如果包管理器是`pipenv`，则用：
-  * `pipenv install uiautomator2`
-
-再去安装相关依赖的东西：
-
-```bash
-python3 -m uiautomator2 init
-```
+    ```bash
+    pipenv install uiautomator2
+    ```
+* 最新版(`1.3.0+`)无需再去`python3 -m uiautomator2 init`
+  * 后续代码首次`u2.connect()`会自动安装所需的apk的
 
 ## 测试连接
 
@@ -39,18 +37,22 @@ print(d.info)
 
 其中：
 
-u2.connect()可以换成wifi或usb：
+`u2.connect()`可以换成wifi或usb：
 
 * wifi
-    * `d = u2.connect('10.0.0.1')`
+    ```python
+    d = u2.connect('10.0.0.1')
+    ```
 * usb
-    * `d = u2.connect('8c8a4d4d')`
-        * 其中`8c8a4d4d`是`adb devices`列出的当前（用USB数据线连接到Mac中的）安卓设备的ID
-            ```bash
-            ➜  ~ adb devices
-            List of devices attached
-            8c8a4d4d    device
-            ```
+    ```python
+    d = u2.connect('8c8a4d4d')
+    ```
+    * 其中`8c8a4d4d`是`adb devices`列出的当前（用USB数据线连接到Mac中的）安卓设备的ID
+        ```bash
+        ➜  ~ adb devices
+        List of devices attached
+        8c8a4d4d    device
+        ```
 
 输出举例：
 
@@ -72,32 +74,32 @@ conn=<urllib3.connection.HTTPConnection object at 0x1077f4da0>,method=GET,url=/v
 
 ## 说明：安装细节
 
-#### 安装内容
+### 安装内容
 
 上述命令会安装相关工具到你安卓手机中：
 
 * uiautomator-server
-    * 作用：包含httprpc服务的apk
-        * 2个apk
-            * 图解
-                * ![uiautomator_server_two_apk](../assets/img/uiautomator_server_two_apk.png)
-            * 框架要求2个apk，缺一不可
-                * app-uiautomator-test.apk：测试程序
-                    * uiautomator这个框架允许我们测试第三方应用
-                    * 包名：com.github.uiautomator.test
-                * app-uiautomator.apk：被测应用
-                    * 基本就是个傀儡
-                        * 只要别轻易的死掉，就算是一个合格的应用了
-                    * 包名：com.github.uiautomator
-    * 地址：https://github.com/openatx/android-uiautomator-server/releases
+  * 作用：包含httprpc服务的apk
+    * 2个apk
+      * 图解
+        * ![uiautomator_server_two_apk](../assets/img/uiautomator_server_two_apk.png)
+      * 框架要求2个apk，缺一不可
+        * app-uiautomator-test.apk：测试程序
+          * uiautomator这个框架允许我们测试第三方应用
+          * 包名：com.github.uiautomator.test
+        * app-uiautomator.apk：被测应用
+          * 基本就是个傀儡
+            * 只要别轻易的死掉，就算是一个合格的应用了
+          * 包名：com.github.uiautomator
+  * 地址：https://github.com/openatx/android-uiautomator-server/releases
 * atx-agent
-    * 地址：https://github.com/openatx/atx-agent
+  * 地址：https://github.com/openatx/atx-agent
 * openstf/minicap
-    * 地址：https://github.com/openstf/minicap
+  * 地址：https://github.com/openstf/minicap
 * openstf/minitouch
-    * 地址：https://github.com/openstf/minitouch
+  * 地址：https://github.com/openstf/minitouch
 
-#### 安装log日志
+### 安装log日志
 
 期间如果开启了uiautomator2的debug后，可以看到更详细的信息。
 
@@ -147,28 +149,28 @@ Successfully init AdbDevice(serial=hmucaei75ptk7szs)
   * 对应着：app-uiautomator.apk和app-uiautomator-test.apk
 * atx-agent
 
-#### 安装后的app
+### 安装后的app
 
 不过，实际上（安卓10的小米9，安卓9的小米Note8Pro）只安装了，最核心的2个：
 
 * ATX
-    * 桌面图标
-        * ![atx_desktop_app_logo](../assets/img/atx_desktop_app_logo.png)
-    * 安装期间需要手动点击 继续安装
-        * ![usb_install_note_atx](../assets/img/usb_install_note_atx.png)
+  * 桌面图标
+    * ![atx_desktop_app_logo](../assets/img/atx_desktop_app_logo.png)
+  * 安装期间需要手动点击 继续安装
+    * ![usb_install_note_atx](../assets/img/usb_install_note_atx.png)
 * com.github.uiautomator.test
-    * 桌面图片：无
-    * 安装期间，需要手动点击：继续安装
-        * ![usb_install_note_u2_test](../assets/img/usb_install_note_u2_test.png)
+  * 桌面图片：无
+  * 安装期间，需要手动点击：继续安装
+    * ![usb_install_note_u2_test](../assets/img/usb_install_note_u2_test.png)
 
 安装后，可以在应用管理中找到，刚才安装的2个应用：
 
 * 红米Note8Pro 安卓9
-    * ![installed_app_redmi_atx](../assets/img/installed_app_redmi_atx.png)
+  * ![installed_app_redmi_atx](../assets/img/installed_app_redmi_atx.png)
 * 华为畅享6S 安卓6
-    * ![installed_app_huawei_6s_atx](../assets/img/installed_app_huawei_6s_atx.png)
+  * ![installed_app_huawei_6s_atx](../assets/img/installed_app_huawei_6s_atx.png)
 
-##### ATX
+#### ATX
 
 关于ATX，启动后的主界面：
 

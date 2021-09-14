@@ -1,7 +1,7 @@
 # 安卓自动化测试利器：uiautomator2
 
-* 最新版本：`v2.3`
-* 更新时间：`20210628`
+* 最新版本：`v2.4`
+* 更新时间：`20210805`
 
 ## 简介
 
@@ -21,14 +21,14 @@
 
 ### 在线浏览
 
-* [安卓自动化测试利器：uiautomator2 book.crifan.com](http://book.crifan.com/books/android_automation_uiautomator2/website)
+* [安卓自动化测试利器：uiautomator2 book.crifan.com](https://book.crifan.com/books/android_automation_uiautomator2/website)
 * [安卓自动化测试利器：uiautomator2 crifan.github.io](https://crifan.github.io/android_automation_uiautomator2/website)
 
 ### 离线下载阅读
 
-* [安卓自动化测试利器：uiautomator2 PDF](http://book.crifan.com/books/android_automation_uiautomator2/pdf/android_automation_uiautomator2.pdf)
-* [安卓自动化测试利器：uiautomator2 ePub](http://book.crifan.com/books/android_automation_uiautomator2/epub/android_automation_uiautomator2.epub)
-* [安卓自动化测试利器：uiautomator2 Mobi](http://book.crifan.com/books/android_automation_uiautomator2/mobi/android_automation_uiautomator2.mobi)
+* [安卓自动化测试利器：uiautomator2 PDF](https://book.crifan.com/books/android_automation_uiautomator2/pdf/android_automation_uiautomator2.pdf)
+* [安卓自动化测试利器：uiautomator2 ePub](https://book.crifan.com/books/android_automation_uiautomator2/epub/android_automation_uiautomator2.epub)
+* [安卓自动化测试利器：uiautomator2 Mobi](https://book.crifan.com/books/android_automation_uiautomator2/mobi/android_automation_uiautomator2.mobi)
 
 ## 版权说明
 
